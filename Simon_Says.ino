@@ -73,7 +73,7 @@ void playGame() {
         break;
       }
     }
-    // check whether or not the answer is correct
+    // check whether or not the answer is correct and if the end of the sequence has been reached
     if (answer == colors[sequence.at(i)] && i == sequence.size() - 1) {
       won = true;
       break;
@@ -89,7 +89,7 @@ void playGame() {
     Serial.println("YOU PASS!");
   } else { // if the player lost, display the current and high scores and clear the vector containing the color sequence
     Serial.println("GAME OVER");
-    if (roundScore > highScore) { // check if the player achieved a new high score
+    if (roundScore > highScore) { // check if the player achieved a new high score and display it
       highScore = roundScore;
       Serial.print("NEW HIGH SCORE ACHIEVED: ");
       Serial.println(highScore);
@@ -118,7 +118,7 @@ void loop() {
     delay(1000);
     playSequence(sequence);
     playGame();
-  } else if (gameInProgress) { // if the player passed a round, show the new sequence and let the them choose a color again
+  } else if (gameInProgress) { // if the player passed a round, show the new sequence and continue the game
     playSequence(sequence);
     playGame(); 
   }
