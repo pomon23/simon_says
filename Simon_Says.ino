@@ -37,7 +37,7 @@ void blinkLED(int led, int duration) {
 }
 
 // play the sequence of colors from a vector passed by reference
-void playSequence(Vector<int>& seq) {
+void playSequence(const Vector<int>& seq) {
   Serial.println("PLAYING SEQUENCE... MEMORIZE THIS!");
   for (int i = 0; i < seq.size(); i++) {
     blinkLED(colors[seq.at(i)], 600);
